@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Galery {
+struct GalleryItem {
     var id : String
     var title : String
     fileprivate var imageUrl : String

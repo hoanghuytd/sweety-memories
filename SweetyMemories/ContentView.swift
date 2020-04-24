@@ -14,7 +14,7 @@ struct ContentView : View {
     
     var updateButton: some View {
         Button(action: { self.networkManager.loadDataNormal() }) {
-            Image(systemName: "person.crop.circle")
+            Image(systemName: "arrow.clockwise")
                 .imageScale(.large)
                 .accessibility(label: Text("Update!"))
                 .padding()

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ImageRow: View {
     var categoryName: String
-    var items: [Landmark]
+    var items: [MemoryPuzzle]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,11 +23,11 @@ struct ImageRow: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(self.items) { landmark in
                         NavigationLink(
-                            destination: LandmarkDetail(
-                                landmark: landmark
+                            destination: MemoryPuzzleDetail(
+                                memoryPuzzle: landmark
                             )
                         ) {
-                            CategoryItem(landmark: landmark)
+                            CategoryItem(memoryPuzzle: landmark)
                         }
                     }
                 }
@@ -38,11 +38,11 @@ struct ImageRow: View {
 }
 
 struct ImageItem: View {
-    var landmark: Landmark
+    var memoryPuzzle: MemoryPuzzle
     var body: some View {
         VStack(alignment: .leading) {
             // ImageViewContainer()
-            Text(landmark.name)
+            Text(memoryPuzzle.name)
                 .foregroundColor(.primary)
                 .font(.caption)
         }
@@ -53,8 +53,8 @@ struct ImageItem: View {
 struct ImageRow_Previews: PreviewProvider {
     static var previews: some View {
         CategoryRow(
-            categoryName: landmarkData[0].category.rawValue,
-            items: Array(landmarkData.prefix(4))
+            categoryName: memoriesData[0].category.rawValue,
+            items: Array(memoriesData.prefix(4))
         )
         .environmentObject(UserData())
     }

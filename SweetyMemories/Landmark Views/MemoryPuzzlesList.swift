@@ -7,7 +7,7 @@ A view showing a list of landmarks.
 
 import SwiftUI
 
-struct LandmarkList: View {
+struct MemoryPuzzlesList: View {
     @EnvironmentObject private var userData: UserData
     
     var body: some View {
@@ -16,12 +16,12 @@ struct LandmarkList: View {
                 Text("Show Favorites Only")
             }
             
-            ForEach(userData.landmarks) { landmark in
+            ForEach(userData.memoryPuzzles) { landmark in
                 if !self.userData.showFavoritesOnly || landmark.isFavorite {
                     NavigationLink(
-                        destination: LandmarkDetail(landmark: landmark)
+                        destination: MemoryPuzzleDetail(memoryPuzzle: landmark)
                     ) {
-                        LandmarkRow(landmark: landmark)
+                        MemoryPuzzleRow(momoryPuzzle: landmark)
                     }
                 }
             }
@@ -30,11 +30,11 @@ struct LandmarkList: View {
     }
 }
 
-struct LandmarksList_Previews: PreviewProvider {
+struct MemoryPuzzlesList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
             NavigationView {
-                LandmarkList()
+                MemoryPuzzlesList()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

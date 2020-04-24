@@ -8,15 +8,15 @@ A view showing featured landmarks above a list of all of the landmarks.
 import SwiftUI
 
 struct CategoryHome: View {
-    var categories: [String: [Landmark]] {
+    var categories: [String: [MemoryPuzzle]] {
         Dictionary(
-            grouping: landmarkData,
+            grouping: memoriesData,
             by: { $0.category.rawValue }
         )
     }
 
-    var featured: [Landmark] {
-        landmarkData.filter { $0.isFeatured }
+    var featured: [MemoryPuzzle] {
+        memoriesData.filter { $0.isFeatured }
     }
     
     @State var showingProfile = false
@@ -34,7 +34,7 @@ struct CategoryHome: View {
     var body: some View {
         NavigationView {
             List {
-                FeaturedLandmarks(landmarks: featured)
+                FeaturedMemoryPuzzles(memoryPuzzles: featured)
                     .scaledToFill()
                     .frame(height: 200)
                     .clipped()
@@ -45,11 +45,14 @@ struct CategoryHome: View {
                 }
                 .listRowInsets(EdgeInsets())
                 
-                NavigationLink(destination: LandmarkList()) {
+                NavigationLink(destination: MemoryPuzzlesList()) {
                     Text("See All")
                 }
                 NavigationLink(destination: ContentView()) {
                     Text("API Load")
+                }
+                NavigationLink(destination: EventTimerView()) {
+                    Text("Events")
                 }
             }
             .navigationBarTitle(Text("Featured"))
@@ -62,10 +65,10 @@ struct CategoryHome: View {
     }
 }
 
-struct FeaturedLandmarks: View {
-    var landmarks: [Landmark]
+struct FeaturedMemoryPuzzles: View {
+    var memoryPuzzles: [MemoryPuzzle]
     var body: some View {
-        landmarks[0].image.resizable()
+        memoryPuzzles[0].image.resizable()
     }
 }
 

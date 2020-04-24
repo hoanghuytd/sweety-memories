@@ -13,9 +13,7 @@ import Combine
 class NetworkManager: ObservableObject {
 	@Published var movies = MovieList(results: [])
 	@Published var loading = false
-	private let api_key = ""
-	private let api_url_base = "http://localhost/movies.json?sort_by=popularity.desc&api_key="
-    // "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key="
+	private let api_target = "movies.json"
 	init() {
 		loading = true
 		loadDataByAlamofire()
@@ -23,7 +21,7 @@ class NetworkManager: ObservableObject {
 	
 	public func loadDataNormal() {
         self.loading = true
-		guard let url = URL(string: "\(api_url_base)\(api_key)") else { return }
+        guard let url = URL(string: "\(AppConst.API_ENDPOINT)\(api_target)") else { return }
 		URLSession.shared.dataTask(with: url){ (data, _, _) in
 			guard let data = data else { return }
 			let movies = try! JSONDecoder().decode(MovieList.self, from: data)
@@ -35,7 +33,7 @@ class NetworkManager: ObservableObject {
 	}
 	
 	private func loadDataByAlamofire() {
-		AF.request("\(api_url_base)\(api_key)")
+		AF.request("\(AppConst.API_ENDPOINT)\(api_target)")
 			.responseJSON{ response in
 				guard let data = response.data else { return }
 				let movies = try! JSONDecoder().decode(MovieList.self, from: data)

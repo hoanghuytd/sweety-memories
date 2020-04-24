@@ -27,19 +27,11 @@ struct EventTimerView: View {
 
     
     var body: some View {
-        HStack {
-            Image("rainbowlake.jpg")
-                .resizable()
-                .frame(width: 50, height: 50)
-            Text("Comeback home")
-            Spacer()
             Text(countDownString(from: referenceDate))
                 .font(.body)
                 .onAppear(perform: {
                     _ = self.timer
                 })
-        }
-    .padding()
     }
 
     func countDownString(from date: Date) -> String {

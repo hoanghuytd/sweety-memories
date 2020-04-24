@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryRow: View {
     var categoryName: String
-    var items: [Landmark]
+    var items: [MemoryPuzzle]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,13 +20,13 @@ struct CategoryRow: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(self.items) { landmark in
+                    ForEach(self.items) { memoryPuzzle in
                         NavigationLink(
-                            destination: LandmarkDetail(
-                                landmark: landmark
+                            destination: MemoryPuzzleDetail(
+                                memoryPuzzle: memoryPuzzle
                             )
                         ) {
-                            CategoryItem(landmark: landmark)
+                            CategoryItem(memoryPuzzle: memoryPuzzle)
                         }
                     }
                 }
@@ -37,15 +37,15 @@ struct CategoryRow: View {
 }
 
 struct CategoryItem: View {
-    var landmark: Landmark
+    var memoryPuzzle: MemoryPuzzle
     var body: some View {
         VStack(alignment: .leading) {
-            landmark.image
+            memoryPuzzle.image
                 .renderingMode(.original)
                 .resizable()
                 .frame(width: 155, height: 155)
                 .cornerRadius(5)
-            Text(landmark.name)
+            Text(memoryPuzzle.name)
                 .foregroundColor(.primary)
                 .font(.caption)
         }
@@ -56,8 +56,8 @@ struct CategoryItem: View {
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
         CategoryRow(
-            categoryName: landmarkData[0].category.rawValue,
-            items: Array(landmarkData.prefix(4))
+            categoryName: memoriesData[0].category.rawValue,
+            items: Array(memoriesData.prefix(4))
         )
         .environmentObject(UserData())
     }

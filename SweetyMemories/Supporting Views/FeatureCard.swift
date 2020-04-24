@@ -8,18 +8,18 @@ A view that shows a featured landmark.
 import SwiftUI
 
 struct FeatureCard: View {
-    var landmark: Landmark
+    var memoryPuzzle: MemoryPuzzle
     
     var body: some View {
-        landmark.featureImage?
+        memoryPuzzle.featureImage?
             .resizable()
             .aspectRatio(3 / 2, contentMode: .fit)
-            .overlay(TextOverlay(landmark: landmark))
+            .overlay(TextOverlay(memoryPuzzle: memoryPuzzle))
     }
 }
 
 struct TextOverlay: View {
-    var landmark: Landmark
+    var memoryPuzzle: MemoryPuzzle
     
     var gradient: LinearGradient {
         LinearGradient(
@@ -33,10 +33,10 @@ struct TextOverlay: View {
         ZStack(alignment: .bottomLeading) {
             Rectangle().fill(gradient)
             VStack(alignment: .leading) {
-                Text(landmark.name)
+                Text(memoryPuzzle.name)
                     .font(.title)
                     .bold()
-                Text(landmark.park)
+                Text(memoryPuzzle.park)
             }
             .padding()
         }
@@ -46,6 +46,6 @@ struct TextOverlay: View {
 
 struct FeatureCard_Previews: PreviewProvider {
     static var previews: some View {
-        FeatureCard(landmark: features[0])
+        FeatureCard(memoryPuzzle: features[0])
     }
 }
