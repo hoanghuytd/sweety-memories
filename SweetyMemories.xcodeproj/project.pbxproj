@@ -66,6 +66,7 @@
 		07FBCB55245332BF00CF8A17 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBCB20245332BF00CF8A17 /* LandmarkList.swift */; };
 		07FBCB56245332BF00CF8A17 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBCB21245332BF00CF8A17 /* LandmarkDetail.swift */; };
 		07FBCB57245332BF00CF8A17 /* LandmarkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FBCB22245332BF00CF8A17 /* LandmarkRow.swift */; };
+		CD280380B30A67A5525B6BA9 /* Pods_SweetyMemories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6660F92C614016C61AB2C9 /* Pods_SweetyMemories.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,9 @@
 		07FBCB20245332BF00CF8A17 /* LandmarkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
 		07FBCB21245332BF00CF8A17 /* LandmarkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		07FBCB22245332BF00CF8A17 /* LandmarkRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkRow.swift; sourceTree = "<group>"; };
+		6F6660F92C614016C61AB2C9 /* Pods_SweetyMemories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SweetyMemories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF6DA94A82B69C37522FFBAF /* Pods-SweetyMemories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweetyMemories.debug.xcconfig"; path = "Target Support Files/Pods-SweetyMemories/Pods-SweetyMemories.debug.xcconfig"; sourceTree = "<group>"; };
+		E301C6AC6236EE4E65864362 /* Pods-SweetyMemories.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SweetyMemories.release.xcconfig"; path = "Target Support Files/Pods-SweetyMemories/Pods-SweetyMemories.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD280380B30A67A5525B6BA9 /* Pods_SweetyMemories.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +153,8 @@
 			children = (
 				07FBCA5D2453287C00CF8A17 /* SweetyMemories */,
 				07FBCA5C2453287C00CF8A17 /* Products */,
+				33EB6A5EC9E126C948F1D90A /* Pods */,
+				A423E0F716CA3E9FBACF9C8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -306,6 +313,24 @@
 			path = "Landmark Views";
 			sourceTree = "<group>";
 		};
+		33EB6A5EC9E126C948F1D90A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF6DA94A82B69C37522FFBAF /* Pods-SweetyMemories.debug.xcconfig */,
+				E301C6AC6236EE4E65864362 /* Pods-SweetyMemories.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A423E0F716CA3E9FBACF9C8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F6660F92C614016C61AB2C9 /* Pods_SweetyMemories.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07FBCA6F2453287E00CF8A17 /* Build configuration list for PBXNativeTarget "SweetyMemories" */;
 			buildPhases = (
+				068B87B15BF5AD12BAD4D3AC /* [CP] Check Pods Manifest.lock */,
 				07FBCA572453287C00CF8A17 /* Sources */,
 				07FBCA582453287C00CF8A17 /* Frameworks */,
 				07FBCA592453287C00CF8A17 /* Resources */,
+				F622803C6F372256104C25A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +415,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		068B87B15BF5AD12BAD4D3AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SweetyMemories-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F622803C6F372256104C25A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SweetyMemories/Pods-SweetyMemories-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SweetyMemories/Pods-SweetyMemories-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SweetyMemories/Pods-SweetyMemories-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07FBCA572453287C00CF8A17 /* Sources */ = {
@@ -566,6 +635,7 @@
 		};
 		07FBCA702453287E00CF8A17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF6DA94A82B69C37522FFBAF /* Pods-SweetyMemories.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -585,6 +655,7 @@
 		};
 		07FBCA712453287E00CF8A17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E301C6AC6236EE4E65864362 /* Pods-SweetyMemories.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
