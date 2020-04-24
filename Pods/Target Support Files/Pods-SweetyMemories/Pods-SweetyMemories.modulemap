@@ -1,6 +1,0 @@
-framework module Pods_SweetyMemories {
-  umbrella header "Pods-SweetyMemories-umbrella.h"
-
-  export *
-  module * { export * }
-}
