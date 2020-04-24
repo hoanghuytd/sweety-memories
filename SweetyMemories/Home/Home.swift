@@ -48,9 +48,9 @@ struct CategoryHome: View {
                 NavigationLink(destination: LandmarkList()) {
                     Text("See All")
                 }
-//                NavigationLink(destination: EventTimerView()) {
-//                    Text("Date events")
-//                }
+                NavigationLink(destination: ContentView()) {
+                    Text("API Load")
+                }
             }
             .navigationBarTitle(Text("Featured"))
             .navigationBarItems(trailing: profileButton)
